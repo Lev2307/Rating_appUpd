@@ -19,7 +19,8 @@ from django.urls import path
 from rating.views import (
     RatingsListView,
     RatingsEntryListView,
-    RatingsDetailView
+    RatingsDetailView,
+    RatingView
     )
 from registration.views import (
     RegistrationView, 
@@ -33,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RatingsListView.as_view(), name='main'),
     path('entry/<name>/', RatingsEntryListView.as_view()),
-    path('rating/<int:pk>/', RatingsDetailView.as_view()),
+    path('rating/<int:pk>/', RatingView.as_view()),
     path('register/', RegistrationView.as_view()),
     path('login/', LoginView.as_view(), name='login'),
     path('pagination_example/', pagination_view),
